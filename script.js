@@ -2,7 +2,7 @@ const todoForm = document.getElementById("todo-form");
 const todoInput = document.getElementById("todo-input");
 const todoList = document.getElementById("todo-list");
 const themeToggle = document.getElementById("toggle-theme");
-
+const clearBtn = document.querySelector(".clear-btn");
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
 function renderTodos() {
@@ -45,10 +45,14 @@ todoForm.addEventListener("submit", (e) => {
     todoInput.value = "";
   }
 });
-
+clearBtn.addEventListener("click", () => {
+    todos.length = 0;
+    renderTodos();
+})
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
   themeToggle.textContent = document.body.classList.contains("dark") ? "☀️ Light Mode" : "🌙 Dark Mode";
+  themeToggle.style.color = document.body.classList.contains("dark") ? "white" : "black";
   localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
 });
 
@@ -57,6 +61,7 @@ function loadTheme() {
   if (savedTheme === "dark") {
     document.body.classList.add("dark");
     themeToggle.textContent = "☀️ Light Mode";
+    themeToggle.style.color = "white";
   }
 }
 
