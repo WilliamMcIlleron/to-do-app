@@ -1,0 +1,84 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222222;
+    --card-bg: #f0f0f0;
+  }
+  
+  body.dark {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --card-bg: #2a2a2a;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #toggle-theme {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: var(--card-bg);
+    color: var(--text-color);
+  }
+  
+  button[type="submit"] {
+    padding: 0.75rem 1.25rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  ul#todo-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li.todo-item {
+    background: var(--card-bg);
+    padding: 0.75rem;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  li.todo-item.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+  
